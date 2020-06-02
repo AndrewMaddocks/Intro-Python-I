@@ -30,3 +30,28 @@ it should use today’s date to get the month and year.
 import sys
 import calendar
 from datetime import datetime
+
+# UNDERSTAND
+# I need to make a calendar that displays in the terminal after i put `python3 14_cal.py 4 2015`
+# if user did not input anything it will print current calendar using daytime module
+# if only one arg is inputted assume its a month and render a cal for current year
+# if two args are inputted render that mon/year calendar
+# else display the expected format then exit the program
+# use sys.argv to work with the terminal
+#
+# PLAN
+# make a way to display a calendar that will take the month and year through the command line
+#
+#
+
+
+today = datetime.today()
+if len(sys.argv) == 3:
+    print(calendar.month(int(sys.argv[2]), int(sys.argv[1])))
+elif len(sys.argv) == 2:
+    print(calendar.month(today.year, int(sys.argv[1])))
+elif len(sys.argv) == 1:
+    print(calendar.month(today.year, today.month))
+else:
+    print("WARNING please follow this format <filename> <month> <year>")
+    exit()
